@@ -22,9 +22,17 @@ Xavier Lange
  * Start discussions
  * Ground expectations on Ember
 
+Note: surprisingly enough, I have found two other talks in the past few months on this subject. Ember is hitting a maturity level where the "rubber has hit the road". Productivity of the framework is being analyzed and it's hard to tell the difference between ember and just javascript/client-side apps.
+
 ---
 
+### Bias much?
+
 <img src="/slide_assets/images/snarky_and_anti_ember.png"></img>
+
+---
+
+<img src="/slide_assets/images/hype_cycle.png"></img>
 
 ---
 
@@ -33,6 +41,12 @@ Xavier Lange
 #### Sure. Why not?  <!-- .element: class="fragment" data-fragment-index="1" -->
 
 Note: I've built many apps, most from scratch
+
+---
+
+#### Project-oriented talk
+
+Note: I'll prove it to you all
 
 ---
 
@@ -131,6 +145,8 @@ Note: Duh. Person quoted really wanted to hack a single, standalone, complex, `D
 
 ### I have given Ember a more-than-fair shake
 
+Note: so this will be a project-centric talk
+
 ---
 
 #### My experience
@@ -144,7 +160,7 @@ More than a year of full-time Ember work.
  * WebSockets with custom ember-data adapter
  * IE8-compliant drag'n'drop interactions
 
-Note: scary-enough: all apps from scratch. Working with the following technologies.
+Note: scary-enough: all apps from scratch. Worked with the following technologies.
 
 ---
 
@@ -156,7 +172,7 @@ Note: scary-enough: all apps from scratch. Working with the following technologi
  * Was lucky to be in sync with rails-compatible libraries
  * Backend was well tested, frontend had none
 
-Note: libraries have always felt like a pain point.
+Note: libraries have always felt like a pain point. I have ejected libraries over time because they fell out of sync. breaking tests, platforms.
 
 ---
 
@@ -369,7 +385,7 @@ Note: overall very happy with this. but it has issues still...
  * Your asynchronous code won't work and you won't understand what to do or why
   * Idiomatic code isn't testable
 
-Note: The docs are a lie: surprisingly difficult to figure out the "just do this" part.
+Note: The docs are a lie: surprisingly difficult to figure out the "just do this" part. The trick is wrapping async code with `Ember.run`. Confusing? Right.
 
 ---
 
@@ -388,24 +404,65 @@ Note: The docs are a lie: surprisingly difficult to figure out the "just do this
    * You'll need to access sibling controllers directly to modify their cached data
  * Can you test your `ember-data` isn't leaking records between routes?
   * Unsaved, dirty records will just hang out
+ * Under certain situations, a store load can fail
+
+Note: you said you wanted a stateful UI...
 
 ---
 
-### Ember gives you fantastic tools. It also gives a few answers. But more importantly to your project: your universe just got more complicated.
+### Ember gives you fantastic tools
+
+### It also gives a few answers
+
+### But not all.
 
 And please:
 
   * Angular won't solve that
   * React.js won't solve that
 
+Note: I still see posts online asking how to hook in to the view lifecycle. and other projects are not tackling client-side data
+
 ---
 
 ### Going back, would I use ember again?
 
  * Many failures are organizational
+ * Many failures are solved by experience
  * Best way to implement all the UI designs as presented
-  * Cheaper: retool UIs to be easily implemented in Rails
-  * Poorer UX. My UX-fu is high.
+
+Note: <ul><li>Will you find people with that experience?</li><li>Static HTML will be cheaper</li><li>... at the expense of fanstic UX</li><li>If you're willing to fight for the best UX, Ember is a credible way to scale that out</li></ul>
+
+---
+
+### You didn't answer the question!
+
+---
+
+#### Ember is not dead. It is not dying
+
+---
+
+#### Ember greases the wheels of collaboration
+
+---
+
+#### Ember is tackling <strong>HARD</strong> problems
+
+---
+
+#### Client-side applications are root of this evil
+
+#### And they're here to stay <!-- .element: class="fragment" data-fragment-index="1" -->
+
+
+---
+
+#### I have not used a better tool for creating UX
+
+---
+
+<img src="/slide_assets/images/picgifs-deal-with-it-52101.gif"></img>
 
 ---
 
@@ -413,8 +470,22 @@ And please:
 
   * Be compulsive in learning what's going on in Ember
   * Be ready to defend your choice of framework
-  * These pains are felt.
-  * The learning curve is real. You're building apps in a whole new way. Upon reflections it feels like the "real" way to build apps but no programmer wants to work harder than they have to.
+  * These pains are felt. Share them.
+  * The learning curve is real
+
+Note: You're building apps in a whole new way. Upon reflection: it feels like the "real" or "right" way to build apps. Code has the right home. But it will be hard work.
+
+---
+
+### Talks Similar To Mine
+
+##### I stole some ideas from these folks
+
+##### They're generally upbeat
+
+[Ember.js: An Antidote To Your Hype Fatigue](https://speakerdeck.com/chancancode/ember-dot-js-an-antidote-to-your-hype-fatigue)
+
+[Ember in the Real World](https://speakerdeck.com/tehviking/ember-in-the-real-world)
 
 ---
 
@@ -424,24 +495,4 @@ Xavier Lange
 
 `@tureus`
 
----
-
-### `async` assocation will reduce the readability of your code
-
-    and you'll always have to consider "will this access cause a server fetch?"
-
-    you will find got'chas with trying to remove models from store which may be async
-
-### Observers are not necessarily removed in a down-up fashion
-
-    You'll get flashes of blank data on your screen as objects are torn down
-    Worse, the observers you write may reset data. Certain plugins will change bound values as they tear down. Is it a bug? Yes. But these are popular plugins.
-
-Note: You'll need to verify the view is not marked as 'dead'.
-
-### Event bubbling is complicated by nested components
-
- * You'll contstruct nice reusable components but then worry about 
-  how to get their data flowing up to the router/controller
- * Nest components may not render properly in tests
-
+<em style="font-size: 20px">Pssst: I'm available to hire</em>
